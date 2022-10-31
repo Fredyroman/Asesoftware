@@ -1,0 +1,86 @@
+<div class="formularioRegistroTurno">
+        <div class="col-12">
+            <form [formGroup]="turnoForm" (ngSubmit)="guardar()">
+                
+        
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Comercios</label>
+                        <select name="comercio" id="comercio" formControlName="comercio" class="form-control">
+                            <option [ngValue]="item" *ngFor="let item of comercios">{{item.nombre}}</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Servicio</label>
+                        <select name="servicio" id="servicio" formControlName="servicio" class="form-control">
+                            <option [ngValue]="item" *ngFor="let item of servicios">{{item.nombre}}</option>
+                        </select>
+                    </div>
+                </div>
+            
+
+            
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Fecha</label>
+                        <input type="date" formControlName="fechaTurno" class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Fecha Inicio</label>
+                        <input type="date" formControlName="horaInicio" class="form-control">
+                    </div>
+                </div>
+        
+
+            <div class="col-6">
+                    <div class="form-group">
+                        <label>Fecha Fin</label>
+                        <input type="date" formControlName="horaFin" class="form-control">
+                    </div>
+            </div><br><br>
+
+                <button type="submit" class="btn btn-success" [disabled]="turnoForm.invalid">Guardar</button>
+
+            </form>
+    </div>
+</div><br><br>
+
+
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Id</th>
+            <th>Comercio</th>
+            <th>Servicio</th>
+            <th>Fecha Turno</th>
+            <th>Hora Inicio</th>
+            <th>Hora Fin</th>
+            <th>Estado</th>
+            <th>Opciones</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let item of turnos">
+            <th>{{item.idTurno}}</th>
+            <td>{{item.servicio.comercios.nombre}}</td>
+            <td>{{item.servicio.nombre}}</td>
+            <td>{{item.fechaTurno}}</td>
+            <td>{{item.horaInicio}}</td>
+            <td>{{item.horaFin}}</td>
+            <td>{{item.estado}}</td>
+              <td>
+                <button type="button" class="btn btn-primary" (click)="editar(item)">Editar</button>
+                <button type="button" class="btn btn-danger" (click)="eliminar(item)">Eliminar</button>
+            </td> 
+        </tr>
+    </tbody>
+    </table>
