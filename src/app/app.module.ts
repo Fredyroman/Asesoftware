@@ -8,12 +8,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http';
 import { ListaTurnosComponent } from './lista-turnos/lista-turnos.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaTurnosComponent
+    ListaTurnosComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

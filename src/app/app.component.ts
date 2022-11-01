@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AutenticacionService } from './servicioLogin/autenticacion.service';
 
 
 @Component({
@@ -8,4 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   title = 'Generación de Turnos';
+  nombreUsuario = this.loginProvider.nombreUsuarioLogueado;
+
+  constructor(private loginProvider:AutenticacionService){
+
+  }
+
+  public visualizarMenu():boolean{
+    return this.loginProvider.habilitarLogueo();
+  }
 }

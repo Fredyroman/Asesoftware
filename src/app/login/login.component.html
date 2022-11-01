@@ -1,0 +1,28 @@
+<div class="formularioLogin">
+    <br>
+    <form [formGroup]="formLogin" (ngSubmit)="submitFormulario()" class="form-group row">
+        <div class="col-md-12">
+            <div class="form-group col-md-12">
+                <label for="inputUsuario" class="form-label">Usuario</label>
+                <input id="inputUsuario" type="text" [class.is-invalid]="f.usuario.errors && f.usuario.touched" 
+                formControlName="usuario" placeholder="Usuario" class="form-control">
+            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                Usuario Obligatorio
+            </div>
+            </div>
+            <br>
+            <div class="form-group col-md-12">
+                <label for="inputPassword" class="form-label">Password</label>
+                <input id="inputPassword"  type="password" [class.is-invalid]="f.password.errors && f.password.touched" 
+                formControlName="password" placeholder="Password" class="form-control">
+                <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                    Password Obligatorio
+                </div>
+            </div>
+            <br>
+            <div>
+                <button type="submit" class="btn btn-success">Ingresar</button>
+            </div>
+        </div>
+    </form>
+</div>
