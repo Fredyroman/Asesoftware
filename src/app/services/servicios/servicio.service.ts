@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class UsuariosService {
+export class ServiciosService {
 
   private API_SERVER = "http://localhost:8080/api/servicios/";
 
@@ -14,7 +14,7 @@ export class UsuariosService {
   ) { }
 
 
-  public getAllUsuariosByCargo(id): Observable<any>{
+  public getAllServiciosByComercio(id): Observable<any>{
     return this.httpClient.get(this.API_SERVER+id)
   }
 

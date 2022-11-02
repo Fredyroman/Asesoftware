@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms';
 import { CargosService } from '../services/comercio/comercio.service';
-import { UsuariosService } from '../services/servicios/servicio.service';
+import { ServiciosService } from '../services/servicios/servicio.service';
 import { MercanciaService } from '../services/turnos/turnos.service';
 
 
@@ -21,7 +21,7 @@ export class ListaTurnosComponent implements OnInit {
   constructor(
     public fb: FormBuilder,
     public cargosService: CargosService,
-    public usuariosService: UsuariosService,
+    public serviciosService: ServiciosService,
     public mercanciaService: MercanciaService,
   ){
     
@@ -44,7 +44,7 @@ export class ListaTurnosComponent implements OnInit {
     
 
     this.turnoForm.get('comercio').valueChanges.subscribe(value => {
-      this.usuariosService.getAllUsuariosByCargo(value.id).subscribe(resp =>{
+      this.serviciosService.getAllServiciosByComercio(value.id).subscribe(resp =>{
         this.servicios = resp;
         console.log(resp);
       },
